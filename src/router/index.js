@@ -92,6 +92,52 @@ export const constantRoutes = [
       }
     ]
   },
+
+  {
+    path: '/master',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: 'type/datamaster/:supplierId',
+        component: (resolve) => require(['@/views/order/master/datamaster'], resolve),
+        name: 'Datamaster',
+        meta: { title: '商品数据', icon: '' }
+      }
+    ]
+  },
+
+
+
+  {
+    path: '/ordermaster',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: 'type/dataMas/:categoryId',
+        component: (resolve) => require(['@/views/shopping/ordermaster/dataMas'], resolve),
+        name: 'DataMas',
+        meta: { title: '商品信息数据', icon: '' }
+      }
+    ]
+  },
+
+  {
+    path: '/ordermaster',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: 'type/dataOrder/:productId',
+        component: (resolve) => require(['@/views/shopping/ordermaster/dataOrder'], resolve),
+        name: 'dataOrder',
+        meta: { title: '订单信息数据', icon: '' }
+      }
+    ]
+  },
+
+
   {
     path: '/job',
     component: Layout,

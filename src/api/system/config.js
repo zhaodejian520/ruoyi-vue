@@ -1,5 +1,15 @@
 import request from '@/utils/request'
 
+
+export function findAllList(query) {
+  return request({
+    url: '/ordermaster/findAllList',
+    method: 'get',
+    params: query
+  })
+}
+
+
 // 查询参数列表
 export function listConfig(query) {
   return request({

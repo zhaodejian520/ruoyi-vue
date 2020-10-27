@@ -1,18 +1,21 @@
 import request from '@/utils/request'
 
 
-// export const findAll list(data) {
-//     return axios.request({
-//         url: "productinfo/findAll",
-//         method: "post",
-//         data:data
-//     })
-// }
 
-export function findAll(data) {
+// 查询文件信息列表
+export function listInfo(query) {
   return request({
-    url: '/productinfo/findAll',
-    method: 'post',
-    data: data
+    url: '/shopping/goods/list',
+    method: 'get',
+    params: query
   })
 }
+
+// 查询文件信息详细
+export function getInfo(productId) {
+  return request({
+    url: '/shopping/goods/' + productId,
+    method: 'get'
+  })
+}
+

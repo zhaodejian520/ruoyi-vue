@@ -213,6 +213,7 @@ export default {
   },
   created() {
     const dictId = this.$route.params && this.$route.params.dictId;
+    console.log(dictId);
     this.getType(dictId);
     this.getTypeList();
     this.getDicts("sys_normal_disable").then(response => {
@@ -222,24 +223,34 @@ export default {
   methods: {
     /** 查询字典类型详细 */
     getType(dictId) {
+      console.log(1);
       getType(dictId).then(response => {
+        console.log(2);
         this.queryParams.dictType = response.data.dictType;
+        console.log("******this.queryParams.dictType*******"+this.queryParams.dictType);
         this.defaultDictType = response.data.dictType;
+        console.log("*******this.defaultDictType******"+this.defaultDictType);
         this.getList();
       });
     },
     /** 查询字典类型列表 */
     getTypeList() {
+      console.log(3);
       listType().then(response => {
         this.typeOptions = response.rows;
+        console.log("*******this.typeOptions******"+this.typeOptions);
       });
     },
     /** 查询字典数据列表 */
     getList() {
+      console.log(4);
       this.loading = true;
       listData(this.queryParams).then(response => {
+        console.log(5);
         this.dataList = response.rows;
+        console.log("******this.dataList*******"+this.dataList);
         this.total = response.total;
+        console.log("******this.total*******"+this.total);
         this.loading = false;
       });
     },
